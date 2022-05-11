@@ -31,6 +31,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: Login to Github Packages
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+	
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
@@ -41,6 +48,7 @@ jobs:
           push: true
           tags: |
             gabbla1/tch:zad1qemu
+            ghcr.io/gabbl0/docker-zad1/zad1qemu:latest
           cache-from: type=registry,ref=gabbla1/tch:zad1qemu
           cache-to: type=inline
           
