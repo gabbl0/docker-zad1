@@ -69,13 +69,13 @@ d. sprawdzenia, ile warstw posiada zbudowany obraz.
 Obrazy budowane są z wykorzystaniem GitHubActions i przesyłane na DockerHub (część podstawowa) i GitHub (część dodatkowa). Logowanie do GitHub Packages następuje przy użyciu GITHUB_TOKEN automatycznie tworzonego dla workflow. Dodatkowo ustawiony jest eksport cache.  
 Link do repozytorium DockerHub: https://hub.docker.com/repository/docker/gabbla1/tch  
 ### Plik ustawień workflow
-
+  
 name: GitHub Action next2 flow to Docker hub  
-
+  
 on:  
   push:  
     branches: [ master ]  
-
+  
 jobs:  
  build-push-images:  
     name: Budowa i publikacja obrazow na repozytorium  
