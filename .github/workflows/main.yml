@@ -31,18 +31,6 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build and export to Docker
-        uses: docker/build-push-action@v3
-        with:
-          context: ./
-          file: ./Dockerfile
-          load: true
-          tags: gabbla1/tch:testtag
-      
-      - name: Test
-        run: |
-          docker run --rm gabbla1/tch:testtag
-
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
